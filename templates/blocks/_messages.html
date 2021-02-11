@@ -1,0 +1,17 @@
+{% for message in messages %}
+    <div class="uk-alert-{% if message.extra_tags %}{{ message.extra_tags }}{% else %}{{ message.tags }}{% endif %}" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>
+            {% if 'success' in message.tags %}
+                <span uk-icon="check"></span>
+            {% elif 'error' in message.tags %}
+                <span uk-icon="close"></span>
+            {% elif 'info' in message.tags %}
+                <span uk-icon="info"></span>
+            {% elif 'warning' in message.tags %}
+                <span uk-icon="warning"></span>
+            {% endif %}
+            {{ message }}
+        </p>
+    </div>
+{% endfor %}

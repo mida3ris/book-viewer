@@ -1,0 +1,8 @@
+{% extends 'blocks/_form_field.html' %}
+
+{% block form_field %}
+    <div uk-form-custom="target: true">
+        <input type="file" name="{{ field.name }}" id="{{ field.auto_id }}">
+        <input class="uk-input uk-form-width-medium" type="text" placeholder="{{ field.field.file_placeholder}}" disabled>
+    </div>
+{% endblock %}

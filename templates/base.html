@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+
+        {% block styles %}
+            {% include 'blocks/_styles.html' %}
+        {% endblock %}
+
+        <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+        <title>BookViewer</title>
+    </head>
+    <body>
+        {% block base_body %}
+        {% endblock %}
+
+        {% block scripts %}
+            {% include 'blocks/_scripts.html' %}
+        {% endblock %}
+    </body>
+</html>

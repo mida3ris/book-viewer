@@ -1,0 +1,21 @@
+.bv-sidebar {
+    width: 200px
+}
+
+a[disabled] {
+    pointer-events: none;
+}
+
+.bv-action-cell {
+    width: 70px;
+}
+
+
+.bv-action-link {
+    padding: 5px !important;
+}
+
+hr.bv-divider {
+    width: 0;
+    height: 100vh;
+}

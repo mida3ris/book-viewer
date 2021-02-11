@@ -1,0 +1,14 @@
+<ul {{ html_params|safe }}>
+    <li>
+        <a href="{{ pagination.previous_page }}"{% if not pagination.previous_page %} disabled{% endif %}>
+            <span class="uk-margin-small-right" uk-pagination-previous></span>
+            Previous
+        </a>
+    </li>
+    <li class="uk-margin-auto-left">
+        <a href="{{ pagination.next_page }}"{% if not pagination.next_page %} disabled{% endif %}>
+            Next
+            <span class="uk-margin-small-left" uk-pagination-next></span>
+        </a>
+    </li>
+</ul>

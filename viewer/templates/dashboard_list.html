@@ -1,0 +1,24 @@
+{% extends 'dashboard.html' %}
+
+{% block dashboard_content %}
+    {% if actions %}
+        <div class="uk-margin uk-margin-remove-top">
+            {% for action in actions %}
+                <a href="{{ action.url }}" class="uk-button uk-button-default uk-button-small">
+                    <span class="uk-margin-small-right" uk-icon="{{ action.icon }}"></span>
+                    {{ action.name }}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if filter %}
+        <div class="uk-margin uk-margin-remove-top">
+            {% include 'blocks/_filter_form.html' with form=filter.form %}
+        </div>
+    {% endif %}
+    <div>
+        <div>{{ pagination.render }}</div>
+        <div>{{ table.render }}</div>
+        <div>{{ pagination.render }}</div>
+    </div>
+{% endblock %}

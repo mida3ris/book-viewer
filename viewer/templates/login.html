@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block base_body %}
+    <div class="uk-section uk-section-secondary" uk-height-viewport="expand: true">
+        <div class="uk-container">
+            <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
+                <div class="uk-padding-small uk-animation-slide-bottom-small">
+                    <div class="uk-margin">
+                        <a class="uk-logo" href="#">Book Viewer</a>
+                    </div>
+                    <hr>
+                    {% include 'blocks/_input_form.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

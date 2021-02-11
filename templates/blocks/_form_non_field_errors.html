@@ -1,0 +1,5 @@
+<div class="uk-text-small uk-text-danger uk-text-break">
+    {% for error in form.non_field_errors %}
+        {{ error|escape }}
+    {% endfor %}
+</div>

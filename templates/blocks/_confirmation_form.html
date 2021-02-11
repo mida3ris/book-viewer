@@ -1,0 +1,9 @@
+<form action="{{ action }}" method="post">
+    {% csrf_token %}
+    <div class="uk-margin uk-margin-remove-top">
+        {{ confirmation_text }}
+    </div>
+    <button type="submit" class="uk-button uk-button-danger">
+        {{ submit_text }}
+    </button>
+</form>

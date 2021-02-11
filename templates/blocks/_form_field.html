@@ -1,0 +1,18 @@
+<label class="uk-form-label" for="{{ field.id_for_label }}">{{ field.label|upper }}</label>
+<div class="uk-inline uk-width-100">
+    {% if icon %}
+        <span class="uk-form-icon" uk-icon="icon: {{ icon }}"></span>
+    {% endif %}
+    {% block form_field %}
+        {{ field }}
+    {% endblock %}
+</div>
+{% if field.errors %}
+    <div class="field-errors">
+        {% for error in field.errors %}
+            <div class="uk-text-danger uk-text-light uk-text-small uk-text-break">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

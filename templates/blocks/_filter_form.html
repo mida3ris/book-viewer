@@ -1,0 +1,14 @@
+<form method="GET" class="uk-form-stacked" action="{{ form.action }}" novalidate>
+    <div class="uk-child-width-expand@m uk-flex-wrap" uk-grid>
+        {% for field in form %}
+            <div{% if field.name == 'ordering' %} class="uk-hidden"{% endif %}>
+                {% include 'blocks/_form_field.html' with field=field icon=field.field.icon only %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="uk-margin">
+        <button type="submit" class="uk-button uk-button-default uk-button-small">
+            {{ form.submit_text }}
+        </button>
+    </div>
+</form>

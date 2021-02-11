@@ -1,0 +1,29 @@
+<form method="POST" class="uk-form-stacked" action="{{ form.action }}" novalidate>
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    <fieldset class="uk-fieldset">
+        {% for field in form %}
+            <div class="uk-margin">
+                {% if field.field.is_file_field %}
+                    {% include 'blocks/_form_file_field.html' with field=field only %}
+                {% else %}
+                    {% include 'blocks/_form_field.html' with field=field icon=field.field.icon only %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </fieldset>
+    <button type="submit" class="uk-button uk-button-default">
+        {{ form.submit_text }}
+    </button>
+</form>
+{% if form.non_field_errors %}
+    <div class="uk-margin">
+        {% include 'blocks/_form_non_field_errors.html' %}
+    </div>
+{% elif form.help_text %}
+    <div class="uk-margin uk-text-small uk-text-muted">
+        {{ form.help_text }}
+    </div>
+{% endif %}

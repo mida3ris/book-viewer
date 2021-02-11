@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block base_body %}
+    <nav class="uk-navbar-container uk-padding uk-padding-remove-top uk-padding-remove-bottom" uk-navbar>
+        <div class="uk-navbar-left">
+            <span class="uk-navbar-item uk-logo uk-padding-remove">
+                <span class="uk-margin-small-right" uk-icon="bookmark"></span>
+                Book Viewer
+                <span class="uk-margin-left uk-label"> v1.0</span>
+            </span>
+        </div>
+        <div class="uk-navbar-right">
+            <span class="uk-navbar-item uk-padding-remove">
+                <a href="{% url 'logout' %}">
+                    <span class="uk-margin-small-right" uk-icon="sign-out"></span>
+                    {% trans 'Logout' %}
+                </a>
+            </span>
+        </div>
+    </nav>
+    <div class="uk-grid-collapse" uk-height-viewport="expand: true" uk-grid>
+        <div class="uk-background-muted bv-sidebar">
+            <ul class="uk-nav-default uk-nav-parent-icon uk-padding" uk-nav="multiple: true">
+                {% for key, value in menu.items %}
+                    <li {% if key == alias %}class="uk-active"{% endif %}>
+                        <a href="{{ value.url }}">
+                            <span class="uk-margin-small-right" uk-icon="{{ value.icon }}"></span>
+                            {{ value.name }}
+                        </a>
+                    </li>
+                    {% if value.add_divider %}
+                        <li class="uk-nav-divider"></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <hr class="uk-divider-vertical bv-divider">
+        <div class="uk-width-expand uk-background-muted uk-padding">
+            <div>
+                {% include 'blocks/_messages.html' %}
+            </div>
+            {% block dashboard_content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
